@@ -21,7 +21,6 @@
     "@react-spring/parallax": "^9.4.5",
     "@tryghost/content-api": "^1.11.1",
     "@types/webpack-env": "^1.17.0",
-    "autoprefixer": "^10.4.7",
     "classnames": "^2.3.1",
     "date-fns": "^2.29.2",
     "lazysizes": "^5.3.2",
@@ -35,6 +34,7 @@
   "devDependencies": {
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",
+    "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
     "frontmatter-markdown-loader": "^2.0.0",
