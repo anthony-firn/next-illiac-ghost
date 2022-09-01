@@ -62,7 +62,7 @@ import { UpDown, UpDownWide } from "../styles/animations"
               link="./"
               bg="linear-gradient(to right, #D585FF 0%, #00FFEE 100%)"
             >
-              I stay up to date on the latest AI Systems and Research. It's an increasingly
+              I stay up to date on the latest AI Systems and Research. It is an increasingly
               impotant part of all Technical and Scientific fields, and I hope to be able to
               influence the study in a positive way.
             </ProjectCard>
