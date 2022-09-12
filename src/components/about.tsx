@@ -7,11 +7,12 @@ import Inner from "../elements/inner"
 import Content from "../elements/content"
 import Svg from "./svg"
 import { UpDown, UpDownWide } from "../styles/animations"
+import PostBody from '../../components/post-body'
 // @ts-ignore
 // import AboutMDX from "../sections/about"
 // import { attributes, html } from '../../content/about.md'
 
-const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
+const About = ({ offset, factor = 1 , aboutPost}: { offset: number; factor?: number }) => (
   <div>
     <Divider
       bg="divider"
@@ -44,7 +45,7 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
       <Inner>
         {/* <AboutMDX /> */}
         {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
-        <div>_____Test_____</div>
+        <PostBody content={aboutPost.html} />
       </Inner>
     </Content>
   </div>
