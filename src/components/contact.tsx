@@ -1,17 +1,20 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx } from 'theme-ui';
 import Divider from "../elements/divider"
 import Inner from "../elements/inner"
 import Content from "../elements/content"
 import Svg from "./svg"
 import { UpDown, UpDownWide, waveAnimation } from "../styles/animations"
+import PostBody from '../../components/post-body'
 import Footer from "./footer"
 // @ts-ignore
 // import ContactMDX from "../sections/contact"
 // import { attributes, html } from '../../content/contact.md'
 
-const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
+
+
+const Contact = ({ offset, factor = 1 , contactPost}: { offset: number; factor?: number }) => (
   <div>
     <Divider fill="divider" speed={0.2} offset={offset} factor={factor}>
       <div sx={{ position: `absolute`, bottom: 0, width: `full`, transform: `matrix(1, 0, 0, -1, 0, 0)` }}>
@@ -38,10 +41,8 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
     </Divider>
     <Content sx={{ variant: `texts.medium` }} speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        {/* <ContactMDX /> */}
-        {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
-        <div>_____Test_____</div>
-      </Inner>
+        <PostBody content={contactPost.html} />
+        </Inner>
       <Footer />
     </Content>
     <Divider speed={0.1} offset={offset} factor={factor}>

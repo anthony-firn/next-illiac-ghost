@@ -6,9 +6,12 @@ import Inner from "../elements/inner"
 import Content from "../elements/content"
 import Svg from "./svg"
 import { UpDown, UpDownWide } from "../styles/animations"
-// import { attributes, html } from '../../content/home.md'
+import PostBody from '../../components/post-body'
+// @ts-ignore
+// import AboutMDX from "../sections/about"
+// import { attributes, html } from '../../content/about.md'
 
-const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
+const Hero = ({ offset, factor = 1 , heroPost}: { offset: number; factor?: number }) => (
   <div>
     <Divider speed={0.2} offset={offset} factor={factor}>
       <UpDown>
@@ -40,8 +43,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
     </Divider>
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
-        <div>_____Test_____</div>
+        <PostBody content={heroPost.html} />
       </Inner>
     </Content>
   </div>

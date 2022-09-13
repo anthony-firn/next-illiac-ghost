@@ -5,18 +5,20 @@ import Hero from "../src/components/hero"
 import Projects from "../src/components/projects"
 import About from "../src/components/about"
 import Contact from "../src/components/contact"
-import { getAboutPost } from '../lib/api'
+import { getAboutPost, getHeroPost, getContactPost } from '../lib/api'
 
-export default function Illiac({ aboutPosts }) {
+export default function Illiac({ heroPosts, aboutPosts, contactPosts }) {
+  const heroPost = heroPosts[0]
   const aboutPost = aboutPosts[0]
+  const contactPost = contactPosts[0]
   return (
     <>
-            <Layout>
+      <Layout>
         <Parallax pages={5}>
-          <Hero offset={0} factor={1} />
+          <Hero offset={0} factor={1} heroPost={heroPost} />
           <Projects offset={1} factor={2} />
-          <About offset={3} factor={1} aboutPost={aboutPost}/>
-          <Contact offset={4} factor={1} />
+          <About offset={3} factor={1} aboutPost={aboutPost} />
+          <Contact offset={4} factor={1} contactPost={contactPost} />
         </Parallax>
       </Layout>
     </>
@@ -25,7 +27,9 @@ export default function Illiac({ aboutPosts }) {
 
 export async function getStaticProps({ preview }) {
   const aboutPosts = (await getAboutPost(preview)) || []
+  const heroPosts = (await getHeroPost(preview)) || []
+  const contactPosts = (await getContactPost(preview)) || []
   return {
-    props: { aboutPosts },
+    props: { aboutPosts, heroPosts, contactPosts },
   }
 }
