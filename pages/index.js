@@ -5,7 +5,7 @@ import Hero from "../src/components/hero"
 import Projects from "../src/components/projects"
 import About from "../src/components/about"
 import Contact from "../src/components/contact"
-import { getAboutPost, getHeroPost, getContactPost } from '../lib/api'
+import { getTagPosts } from '../lib/api'
 
 export default function Illiac({ heroPosts, aboutPosts, contactPosts }) {
   const heroPost = heroPosts[0]
@@ -26,9 +26,9 @@ export default function Illiac({ heroPosts, aboutPosts, contactPosts }) {
 }
 
 export async function getStaticProps({ preview }) {
-  const aboutPosts = (await getAboutPost(preview)) || []
-  const heroPosts = (await getHeroPost(preview)) || []
-  const contactPosts = (await getContactPost(preview)) || []
+  const aboutPosts = (await getTagPosts(preview, 'about')) || []
+  const heroPosts = (await getTagPosts(preview, 'hero')) || []
+  const contactPosts = (await getTagPosts(preview, 'contact')) || []
   return {
     props: { aboutPosts, heroPosts, contactPosts },
   }
